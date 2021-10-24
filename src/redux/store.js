@@ -16,7 +16,7 @@ let store = {
                 {id: 2, message: 'How are you'},
                 {id: 3, message: 'What is your name'},
             ],
-            addNewMessageText: ''
+            newMessageBody: ''
         },
         profilePage: {
             posts: [

@@ -13,7 +13,7 @@ const Dialogs = (props) => {
 
     let dialogsElements = state.dialogsData.map(dialog => <DialogItem  name ={ dialog.name } id={dialog.id}/>)
     let messagesElements = state.messagesData.map(message => <Message message = { message.message }/>)
-    let newMessageBody = state.addNewMessageText;
+    let newMessageBody = state.newMessageBody;
 
 
     let onSendMessageClick = () => {
@@ -22,7 +22,7 @@ const Dialogs = (props) => {
     }
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.updateNewMEssageBody(body);
+        props.updateNewMessageBody(body);
     }
 
     return (
@@ -36,7 +36,7 @@ const Dialogs = (props) => {
                 <div>{messagesElements}</div>
                 <div>
                     <div>
-                        <input type="text" placeholder='Enter Message'
+                        <textarea  placeholder='Enter Message'
                                value={newMessageBody}
                                onChange={onNewMessageChange}
                         />
