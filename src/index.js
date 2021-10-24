@@ -1,4 +1,4 @@
- import store from "./redux/store"
+ import store from "./redux/redux-store"
  import ReactDOM from "react-dom";
  import React from "react";
  import App from "./App";
@@ -21,4 +21,7 @@
 
  rerenderEntireTree(store.getState());
 
- store.subscribe(rerenderEntireTree);
+ store.subscribe(() => {
+     let state = store.getState();
+     rerenderEntireTree(state)
+ });
