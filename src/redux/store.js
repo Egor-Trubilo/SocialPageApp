@@ -5,6 +5,13 @@ import profileReducer from "./profile-reducer";
 
 let store = {
     _state: {
+        profilePage: {
+            posts: [
+                {id: 1, message: 'Hi how are you?', likesCount: 11},
+                {id: 2, message: 'My first post!', likesCount: 24},
+            ],
+            newPostText: ''
+        },
         dialogsPage: {
             dialogsData: [
                 {id: 1, name: 'Egor'},
@@ -18,40 +25,29 @@ let store = {
             ],
             newMessageBody: ''
         },
-        profilePage: {
-            posts: [
-                {id: 1, message: 'Hi how are you?', likesCount: 11},
-                {id: 2, message: 'My first post!', likesCount: 24},
-            ],
-            newPostText: ''
-        },
-    },
-    getState() {
-        return this._state;
+
     },
     _callSubscriber() {
+        console.log('State changed');
+    },
 
+    getState() {
+        debugger;
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-    dispatch: function (action) {
-        this._state.dialogsPage= dialogsReducer(this._state.dialogsPage, action);
-        this._state.profilePage= profileReducer(this._state.profilePage, action);
+
+    dispatch(action) {
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+
 
         this._callSubscriber(this._state);
     }
 }
 
 
-
-
-
-
-
-
-
-window.store = store;
-
-
 export default store;
+window.store = store;

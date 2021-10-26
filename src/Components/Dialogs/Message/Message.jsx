@@ -4,10 +4,7 @@ import d from "./Message.module.css";
 const Message = (props) => {
     return (
         <div>
-
-            <div className={d.message}>
-                {props.message}
-            </div>
+            <div className={d.message}>{props.message}</div>
         </div>
 
     )
