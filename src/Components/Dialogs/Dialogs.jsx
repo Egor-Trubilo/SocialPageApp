@@ -15,12 +15,12 @@ const Dialogs = (props) => {
     let newMessageBody = state.newMessageBody;
 
     let onSendMessageClick = () => {
-        props.sendMessage();
+        props.sendMessageCreator();
     }
 
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.updateNewMessageBody(body);
+        props.updateNewMessageBodyCreator(body);
     }
 
     return (
