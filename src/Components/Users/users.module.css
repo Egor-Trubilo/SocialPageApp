@@ -2,3 +2,16 @@
     width: 80px;
     height: 80px;
 }
+
+.selectedPage{
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.nav span {
+    cursor: pointer;
+}
+
+/*selectedPage:hover {*/
+/*    cursor: pointer;*/
+/*}*/
