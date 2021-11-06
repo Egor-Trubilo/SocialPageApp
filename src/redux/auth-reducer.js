@@ -1,3 +1,4 @@
+
 const SET_USER_DATA = 'SET-USER-DATA';
 
 
@@ -8,6 +9,7 @@ let initialState = {
     login:null,
     isAuth: false,
     isFetching: false,
+
 };
 
 const authReducer = (state = initialState, action) => {
