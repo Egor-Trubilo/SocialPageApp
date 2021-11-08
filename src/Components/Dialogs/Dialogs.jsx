@@ -2,8 +2,7 @@ import React from "react";
 import d from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {Redirect} from "react-router-dom";
-import DialogsContainer from "./DialogsContainer";
+
 
 
 
@@ -24,6 +23,8 @@ const Dialogs = (props) => {
         let body = e.target.value;
         props.updateNewMessageBodyCreator(body);
     }
+
+
 
     return (
         <div className={d.dialogs}>
