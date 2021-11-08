@@ -115,6 +115,18 @@ export const unfollow = (userId) => {
             });
     }
 }
+export const setUserProfile = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingInProgress(true, userId))
+        usersAPI.unfollow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(unfollowSuccess(userId));
+                }
+                dispatch(toggleFollowingInProgress(false, userId));
+            });
+    }
+}
 
 
     export default usersReducer;
