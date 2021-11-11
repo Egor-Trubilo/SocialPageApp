@@ -5,6 +5,7 @@ import {withAuthRedirect} from "../../HOC/withAuthRedirect";
 import Dialogs from "./Dialogs";
 import {compose} from "redux";
 
+
 let mapStateToProps = (state) => {
     return {
         dialogsPage: state.dialogsPage,
@@ -14,6 +15,6 @@ let mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps,
-        {sendMessageCreator, updateNewMessageBodyCreator,}),
+        {sendMessageCreator, updateNewMessageBodyCreator}),
     withAuthRedirect
 )(Dialogs);

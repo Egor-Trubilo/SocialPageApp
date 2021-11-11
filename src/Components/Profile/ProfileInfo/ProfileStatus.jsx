@@ -1,4 +1,5 @@
 import React from "react";
+import Preloader from "../../common/Preolader/Preloader";
 
 
 class ProfileStatus extends React.Component {
@@ -9,7 +10,12 @@ class ProfileStatus extends React.Component {
     activateEditMode =() => {
         this.state.editMode = true;
     }
+
     render() {
+        if (!this.props.profile) {
+            return <Preloader />
+        }
+        debugger;
         return (
             <div>
                 {!this.props.editMode &&
