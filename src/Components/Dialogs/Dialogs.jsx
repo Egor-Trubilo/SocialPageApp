@@ -1,5 +1,5 @@
-import React from "react";
-import d from "./Dialogs.module.css";
+import React from 'react';
+import d from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {Redirect} from "react-router-dom";
@@ -13,12 +13,12 @@ const Dialogs = (props) => {
     let newMessageBody = state.newMessageBody;
 
     let onSendMessageClick = () => {
-        props.sendMessageCreator();
+        props.sendMessage();
     }
 
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.updateNewMessageBodyCreator(body);
+        props.updateNewMessageBody(body);
     }
 
     if (!props.isAuth) return <Redirect to={"/login"} /> ;
@@ -35,8 +35,8 @@ const Dialogs = (props) => {
                 <div>
                     <div>
                         <textarea  placeholder='Enter Message'
-                               value={newMessageBody}
-                               onChange={onNewMessageChange}
+                                   value={newMessageBody}
+                                   onChange={onNewMessageChange}
                         />
                     </div>
                     <div>
@@ -46,10 +46,32 @@ const Dialogs = (props) => {
             </div>
 
         </div>
-
     )
 }
 
+export default Dialogs;
 
 
-export default Dialogs ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

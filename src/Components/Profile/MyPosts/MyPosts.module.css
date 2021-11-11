@@ -1,15 +1,7 @@
-
-.content{
-    grid-area: c;
-    background-color: rgb(205, 50, 50);
-}
-.postsBlock{
+.postsBlock {
     padding: 10px;
-    font-size: 22px;
 }
-.posts{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
 
+.posts {
+    margin-top: 10px;
 }
