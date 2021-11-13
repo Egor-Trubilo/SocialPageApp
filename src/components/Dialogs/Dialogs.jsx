@@ -16,7 +16,7 @@ const Dialogs = (props) => {
     let addNewMessage = (values) => {
         props.sendMessage(values.newMessageBody)
     }
-    const DialogsForm = (props) => {
+    let DialogsForm = (props) => {
         return (
             <form onSubmit={props.handleSubmit}>
                 <Field placeholder='Enter Message'
