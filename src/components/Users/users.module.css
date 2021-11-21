@@ -3,11 +3,7 @@
     height: 80px;
 }
 
-.selectedPage{
-    font-weight: bold;
-    cursor: pointer;
 
-}
 .nav span {
     cursor: pointer;
 }
