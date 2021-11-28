@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route, Switch, withRouter} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -13,17 +13,29 @@ import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
+import Login from "./components/Login/Login";
 
 const LoginPage = React.lazy(() => import('./components/Login/Login'));
 
 class App extends React.Component {
+    catchAllUnhandledErrors = (reason, promise) => {
+        alert("Some error occured");
+    }
 
     componentDidMount() {
         this.props.initializeApp();
+        window.addEventListener(
+            "unhandledrejection", this.catchAllUnhandledErrors
+        );
+    }
+    componentWillUnmount() {
+        window.removeEventListener(
+            "unhandledrejection", this.catchAllUnhandledErrors
+        );
     }
 
     render() {
-        if (!this.props.initialized){
+        if (!this.props.initialized) {
             return <Preloader/>
         }
 
@@ -31,6 +43,7 @@ class App extends React.Component {
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Navbar/>
+
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs'
                            render={() => <DialogsContainer/>}/>
@@ -42,7 +55,10 @@ class App extends React.Component {
                            render={() => <UsersContainer/>}/>
 
                     <Route path='/login'
-                           render={withSuspense(LoginPage)}/>
+                           render={() => <Login/>}/>
+                    <Route exact path='/'
+                           render={() => <ProfileContainer/>}/>
+
                 </div>
             </div>
         )
@@ -50,15 +66,15 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized
+    initialized: state.app.initialized
 })
 
 let AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializeApp}))(App);
 
-let MainApp =(props) =>{
-   return <BrowserRouter>
+let MainApp = (props) => {
+    return <BrowserRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>

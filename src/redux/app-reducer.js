@@ -1,5 +1,3 @@
-import {authAPI} from "../api/api";
-import {stopSubmit} from "redux-form";
 import {getAuthUserData} from "./auth-reducer";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED-SUCCESS';
@@ -7,7 +5,7 @@ const INITIALIZED_SUCCESS = 'INITIALIZED-SUCCESS';
 
 let initialState = {
     initialized: false,
-
+    globalError: null
 };
 
 const appReducer = (state = initialState, action) => {
