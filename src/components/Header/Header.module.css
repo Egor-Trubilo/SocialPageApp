@@ -1,12 +1,4 @@
-.header{
-    background-color: white;
-    border-bottom: 1px solid #e5e7eb;
-    z-index: 99;
-    align-items: center;
-    display: flex;
-    margin: auto;
 
-}
 .img{
     width: 30px;
     text-align: center;

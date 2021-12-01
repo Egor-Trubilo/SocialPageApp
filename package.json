@@ -17,6 +17,7 @@
     "redux-form": "^8.3.7",
     "redux-thunk": "^2.4.0",
     "reselect": "^4.1.4",
+    "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.2",
     "react-test-render": "^1.1.2"
   }
 }
